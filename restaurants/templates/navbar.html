@@ -9,7 +9,33 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'restaurant-create' %}">Create Restaurant</a>
       </li>
+      
+      {% if request.user.is_active %}
+      
+       <li class="nav-item" >
+        <a class="nav-link " >Welcome {{request.user}}</a>
+      </li>
+      <div style="margin-left:400px">
+        <li class="nav-item" >
+        <a class="nav-link" href="{% url 'signout' %}">LogOut</a>
+      </li>
+      <div>
+    
     </ul>
+      </li>
+      {% else %}
+      
+      <li class="nav-item" style="margin-left:460px">
+        <a class="nav-link" href="{% url 'signup' %}">SignUp</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="{% url 'signin' %}">Login</a>
+      </li>
+      
+        
+      {% endif %}
+      
+      
     
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" name='q' placeholder="I don't do anything">
